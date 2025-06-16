@@ -71,3 +71,30 @@ variants:
   - name: "Color"
     is_grayscale: false
     use_color_pp: true
+
+# mrf cdn
+paper_replication:
+  seed: 42
+  epochs: 75
+  label_map:
+    normal: 0
+    abnormal: 1
+  class_names: ["Normal", "Abnormal"]
+
+  mrf_dcn:
+    img_size: [224, 224]
+    batch_size: 32
+    learning_rate: 0.001
+    early_stopping_patience: 15
+    model_path: "saved_models/mrf_dcn_classifier.keras"
+    
+  unet:
+    patch_size: 512
+    batch_size: 8
+    learning_rate: 0.0001
+    early_stopping_patience: 10
+    model_path: "saved_models/unet_segmenter.keras"
+    # Paths for patch data generation and storage
+    patch_dir: "data/patches/"
+    patch_df_path: "data/patches/unet_patches.csv"
+    patch_zip_path: "saved_models/patches.zip"
