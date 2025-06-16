@@ -2,7 +2,7 @@
 
 This repository contains the code and technical report for a binary classifier for Cervical Cancer Whole Slide Images (WSIs). Multiple strategies were tested, and our proposed model was developed to address the challenge.
 
-Our approach consists of two distinct models. The primary model utilizes Ensemble-Stacking and Grad-CAM, achieving an accuracy of **~99% on the SIPaKMeD Dataset** and **~90% on the Herlev dataset**. A secondary, lightweight model was also developed for segmentation tasks, achieving 92% accuracy.
+Our approach consists of two distinct models. The primary model utilizes Ensemble-Stacking and Grad-CAM, achieving an accuracy of **~99% on the SIPaKMeD Dataset** and **~90% on the Herlev dataset**. A secondary, lightweight model was also developed for segmentation tasks, achieving 93% accuracy.
 
 ## Project Structure
 
