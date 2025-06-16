@@ -70,7 +70,6 @@ def train_lightweight_models(config):
             # finetune
             print(f"\n[Stage 2/2] Fine-Tuning for {model_name_variant}...")
             
-            # Load the best model from stage 1
             model = tf.keras.models.load_model(str(initial_model_path))
             
             # unreeze layaers
@@ -101,20 +100,16 @@ if __name__ == '__main__':
         "--config",
         "-c",
         type=str,
-        # The default is now the BASE config.
+        # The default is the BASE config.
         default="configs/config.yml",
         help="Path to the base or override config file."
     )
     args = parser.parse_args()
 
-    # --- THIS IS THE NEW LOGIC ---
-
-    # 1. Always load the main base configuration file first.
     base_config_path = "configs/config.yml"
     print(f"--- Loading base configuration from: {base_config_path} ---")
     config = OmegaConf.load(base_config_path)
 
-    # 2. If a different config is specified, load it and merge it.
     if args.config != base_config_path:
         override_config_path = args.config
         print(f"--- Loading and merging override config: {override_config_path} ---")
@@ -122,9 +117,6 @@ if __name__ == '__main__':
         # The override config values will replace the base config values.
         config = OmegaConf.merge(config, override_conf)
 
-    # Optional: Print the final effective configuration
     # print("--- Final effective configuration ---")
-    # print(OmegaConf.to_yaml(config))
 
-    # Call the main function for the script
     train_lightweight_models(config)
