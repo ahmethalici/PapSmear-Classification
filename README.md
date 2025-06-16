@@ -26,10 +26,6 @@ pap_smear_project/
 ## Setup Instructions
 
 ### 1. Clone the Repository
-```bash
-git clone <your-repo-url>
-cd pap_smear_project
-```
 
 ### 2. Download Data
 Place the **Herlev** and **Sipakmed** datasets inside the `data/raw/` directory. The expected structure is:

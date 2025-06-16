@@ -15,8 +15,6 @@ def create_dummy_bmp(filepath, size=(10, 10)):
 print("Creating fake dataset structure in data/raw/...")
 base_path = Path("data/raw/")
 
-# --- IMPROVED STRUCTURE ---
-# This structure now correctly matches the glob patterns in make_dataset.py
 structure = {
     # Herlev Data
     "HerlevData/train/normal_in_situ_carcinoma": 2,
@@ -24,7 +22,6 @@ structure = {
     "HerlevData/test/normal_columnar": 2,
     "HerlevData/test/severe_dysplastic": 2,
     
-    # Sipakmed Data (with the correct intermediate folder like 'class_1')
     "im_Abnormal/class_1/CROPPED": 5, # abnormal
     "im_Carcinoma-in-situ/class_2/CROPPED": 5, # abnormal
     "im_Parabasal/class_3/CROPPED": 5, # normal
