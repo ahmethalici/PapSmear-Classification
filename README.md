@@ -94,12 +94,12 @@ You are now inside the container's shell and can proceed to the "How to Run the 
     *   Open **Finder** -> **Applications** -> `Python 3.12` (or your version) folder.
     *   Double-click on **`Install Certificates.command`**.
 
-## How to Run the Pipeline
+## How to Run the Training Pipeline
 
-This project includes automation scripts to simplify the workflow.
+This project includes automation scripts to simplify the training and evaluation workflow.
 
 ### 1. Run a Quick Dry Run (Recommended First)
-A dry run tests the entire pipeline on a minimal, auto-generated dataset. It's the best way to verify that your environment is set up correctly without needing the real data or a GPU. It should complete in a few minutes.
+A dry run tests the entire training pipeline on a minimal, auto-generated dataset. It's the best way to verify that your environment is set up correctly without needing the real data or a GPU. It should complete in a few minutes.
 
 ```bash
 bash scripts/run_dry_run.sh
@@ -116,6 +116,27 @@ This will run the entire process on the real dataset as configured in `configs/c
 ```bash
 bash scripts/run_full_training.sh
 ```
+
+## Running Analysis
+
+### Grad-CAM Visualization
+After training, you can run Grad-CAM analysis to visualize what parts of an image the model is focusing on.
+
+1.  **Configure the Analysis:** Open `configs/config.yml` and edit the `gradcam_analysis` section to specify which trained model you want to inspect.
+    ```yaml
+    gradcam_analysis:
+      model_filename: "InceptionResNetV2_Color_best_finetuned.keras"
+      last_conv_layer_name: "conv_7b"
+      backbone_name: "inception_resnet_v2"
+      preproc_fn: "inception_resnet_v2"
+      # ... other settings
+    ```
+
+2.  **Run the Script:**
+    ```bash
+    bash scripts/run_gradcam_analysis.sh
+    ```
+This will generate and display several plots showing the original images alongside their Grad-CAM heatmaps.
 
 ## Running Tests
 To run the static smoke tests, which quickly check for import errors and configuration issues, use `pytest`:
