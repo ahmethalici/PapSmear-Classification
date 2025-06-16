@@ -1,0 +1,12 @@
+tensorflow
+keras-tuner==1.4.6
+pandas==2.1.4
+numpy==1.26.4
+matplotlib==3.8.2
+seaborn==0.13.2
+scikit-learn==1.3.2
+opencv-python-headless==4.9.0.80
+PyYAML==6.0.1
+omegaconf==2.3.0
+pathlib
+glob2

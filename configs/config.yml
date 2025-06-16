@@ -1,0 +1,73 @@
+# pap_smear_project/configs/config.yml
+
+# Path config
+paths:
+  # IMPORTANT: Update this path to your local data directory
+  # This should be the parent directory containing 'HerlevData' and 'im_*' folders.
+  raw_data_dir: "data/raw/"
+  saved_models_dir: "saved_models/"
+  tuner_dir: "kerastuner_dir"
+  log_dir: "logs/" # For TensorBoard logs
+
+# Data config
+data:
+  img_size: [224, 224]
+  batch_size: 32
+  seed: 42
+  label_map:
+    normal: 0
+    abnormal: 1
+  class_names: ["Normal", "Abnormal"]
+  sipakmed_split:
+    test_size: 0.15      # 15% for test set
+    validation_size: 0.1765  # 15% of the original data (0.15 / 0.85)
+
+# Train config
+training:
+  # Set to false to run KerasTuner hyperparameter search
+  skip_tuning: true
+  optimal_hyperparameters:
+    learning_rate: 0.001
+    dropout_rate: 0.30
+    dense_units: 512
+  # Epochs for different training stages
+  initial_train_epochs: 25
+  finetune_epochs: 20
+  ensemble_train_epochs: 30
+  # Callbacks
+  early_stopping_patience: 7
+  ensemble_early_stopping_patience: 10
+  # Percentage of base model layers to unfreeze for fine-tuning
+  finetune_unfreeze_percent: 0.3
+
+# Model definitions
+# This section defines all models to be trained and evaluated.
+# The 'name' must match a key in tensorflow.keras.applications
+models:
+  - name: "VGG16"
+    app_fn: "VGG16"
+    preproc_fn: "vgg16"
+  - name: "Xception"
+    app_fn: "Xception"
+    preproc_fn: "xception"
+  - name: "EfficientNetB2"
+    app_fn: "EfficientNetB2"
+    preproc_fn: "efficientnet"
+  - name: "InceptionResNetV2"
+    app_fn: "InceptionResNetV2"
+    preproc_fn: "inception_resnet_v2"
+  - name: "DenseNet201"
+    app_fn: "DenseNet201"
+    preproc_fn: "densenet"
+  - name: "NASNetMobile"
+    app_fn: "NASNetMobile"
+    preproc_fn: "nasnet"
+
+# Variants
+variants:
+  - name: "Grayscale"
+    is_grayscale: true
+    use_color_pp: false
+  - name: "Color"
+    is_grayscale: false
+    use_color_pp: true

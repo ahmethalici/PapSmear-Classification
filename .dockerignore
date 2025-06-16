@@ -1,0 +1,30 @@
+# Ignore files related to version control
+.git
+.gitignore
+
+# Ignore Python virtual environment and cache
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE-specific files
+.idea/
+.vscode/
+
+# Ignore local data and models
+data/raw/*
+saved_models/*
+logs/*
+kerastuner_dir/
+
+# Ignore build artifacts
+dist/
+build/
+*.egg-info/

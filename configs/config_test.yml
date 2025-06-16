@@ -1,0 +1,14 @@
+# configs/config_test.yml - Overrides for fast dry runs
+
+data:
+  batch_size: 2
+
+training:
+  initial_train_epochs: 1
+  finetune_epochs: 1
+  ensemble_train_epochs: 1
+
+models:
+  - name: "NASNetMobile"
+    app_fn: "NASNetMobile"
+    preproc_fn: "nasnet"
