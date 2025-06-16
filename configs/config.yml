@@ -98,3 +98,29 @@ paper_replication:
     patch_dir: "data/patches/"
     patch_df_path: "data/patches/unet_patches.csv"
     patch_zip_path: "saved_models/patches.zip"
+
+
+gradcam_analysis:
+  # This should be the full filename of the model in the `saved_models` directory.
+  model_filename: "InceptionResNetV2_Color_best_finetuned.keras"
+  
+  # The name of the final convolutional layer in the chosen model's backbone.
+  # Common names:
+  #   - VGG16: 'block5_conv3'
+  #   - InceptionResNetV2: 'conv_7b'
+  #   - Xception: 'block14_sepconv2_act'
+  #   - EfficientNetB2: 'top_conv'
+  last_conv_layer_name: "conv_7b"
+
+  # The name of the backbone layer within the full model.
+  # This usually matches the model name in lowercase.
+  backbone_name: "inception_resnet_v2"
+  
+  # Preprocessing function name (must match a key in make_dataset.py)
+  preproc_fn: "inception_resnet_v2"
+
+  # Analysis parameters
+  target_class_name: "abnormal" # can be 'normal' or 'abnormal'
+  num_samples: 3              # how many images to visualize
+  img_size: [224, 224]        # must match the model's expected input
+  overlay_alpha: 0.6          # heatmap transparency
