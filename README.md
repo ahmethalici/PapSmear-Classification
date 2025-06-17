@@ -6,6 +6,10 @@ The project features two distinct, independent pipelines:
 1.  **High-Performance Ensemble:** Utilizes a stack of state-of-the-art models (VGG16, Xception, etc.) to achieve an accuracy of **~99% on the SIPaKMeD Dataset** and **~90% on the Herlev dataset**.
 2.  **Lightweight Models:** Implements a custom **MRF-DCN classifier** and a **U-Net segmentation** model, achieving 93% classification accuracy with high efficiency.
 
+All the data used in my project can be downloaded from the following links via Kaggle:
+https://www.kaggle.com/datasets/prahladmehandiratta/cervical-cancer-largest-dataset-sipakmed
+https://www.kaggle.com/datasets/yuvrajsinhachowdhury/herlev-dataset
+
 ## Project Structure
 
 ```
