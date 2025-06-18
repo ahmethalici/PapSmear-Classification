@@ -89,6 +89,10 @@ This repository contains two primary pipelines that can be run independently.
 ### Pipeline 1: High-Performance Ensemble Models
 This is the main pipeline for training the ensemble of pre-trained models.
 
+<p align="center">
+    <img src="images/1.jpg" alt="Italian Trulli">
+</p>
+
 #### **Step 1.1: Verify with a Dry Run (Recommended First)**
 This tests the entire ensemble pipeline on a minimal, fake dataset to verify your environment.
 ```bash
@@ -101,6 +105,9 @@ This will run the entire process on the real dataset. **Warning:** This is compu
 ```bash
 bash scripts/run_full_training.sh
 ```
+<p align="center">
+    <img src="images/3.jpg" alt="Italian Trulli">
+</p>
 
 ### Pipeline 2: Lightweight MRF-DCN & U-Net Pipeline
 This pipeline trains the custom lightweight MRF-DCN classifier and the U-Net segmentation model.
@@ -115,6 +122,11 @@ This single command will automatically:
 3.  Train the U-Net segmenter.
 4.  Evaluate both models on their respective test sets and display results.
 
+<p align="center">
+    <img src="images/4.jpg" alt="Italian Trulli">
+</p>
+
+
 ## Running Post-Training Analysis
 
 ### Grad-CAM Visualization
@@ -126,6 +138,11 @@ After training models (from Pipeline 1), you can run Grad-CAM analysis to visual
     bash scripts/run_gradcam_analysis.sh
     ```
 This will generate and display plots showing the original images alongside their Grad-CAM heatmaps.
+
+
+<p align="center">
+    <img src="images/2.jpg" alt="Italian Trulli">
+</p>
 
 ## Running Tests
 To run the static smoke tests, which quickly check for import errors and configuration issues, use `pytest`:
