@@ -90,7 +90,7 @@ This repository contains two primary pipelines that can be run independently.
 This is the main pipeline for training the ensemble of pre-trained models.
 
 <p align="center">
-    <img src="images/1.jpg" alt="Italian Trulli">
+    <img src="images/1.png" alt="Italian Trulli">
 </p>
 
 #### **Step 1.1: Verify with a Dry Run (Recommended First)**
@@ -106,7 +106,7 @@ This will run the entire process on the real dataset. **Warning:** This is compu
 bash scripts/run_full_training.sh
 ```
 <p align="center">
-    <img src="images/3.jpg" alt="Italian Trulli">
+    <img src="images/3.png" alt="Italian Trulli">
 </p>
 
 ### Pipeline 2: Lightweight MRF-DCN & U-Net Pipeline
@@ -123,7 +123,7 @@ This single command will automatically:
 4.  Evaluate both models on their respective test sets and display results.
 
 <p align="center">
-    <img src="images/4.jpg" alt="Italian Trulli">
+    <img src="images/4.png" alt="Italian Trulli">
 </p>
 
 
@@ -141,7 +141,7 @@ This will generate and display plots showing the original images alongside their
 
 
 <p align="center">
-    <img src="images/2.jpg" alt="Italian Trulli">
+    <img src="images/2.png" alt="Italian Trulli">
 </p>
 
 ## Running Tests
